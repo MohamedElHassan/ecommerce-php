@@ -1,7 +1,12 @@
 <?php
+session_start();
+$noNavbar = '';
+$pageTitle = 'Login';
+if (isset($_SESSION['Username'])) {
+  header('Location: dashboard.php'); // Redirect to Dashboard page
+}
 include 'init.php';
-include $tpl . 'header.php';
-include 'includes/languages/english.php';
+
 
 // Check if the request is coming from POST Request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -11,14 +16,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Check If The User Exist In Database
 
-  $stmt = $con->prepare("SELECT Username, Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1");
+  $stmt = $con->prepare("SELECT UserID, Username, Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1 LIMIT 1");
   $stmt->execute(array($username, $hashedPassword));
+  $row = $stmt->fetch();
   $count = $stmt->rowCount();
 
   // IF Count > 0 This Mean The Database Contain Record About This Username
 
   if ($count > 0) {
-    echo 'Welcome ' . $username;
+    // print_r($row);
+    // print_r($row['UserID']);
+    $_SESSION['ID'] = $row['UserID']; // Register Session ID
+    $_SESSION['Username'] = $username; // Register Session name
+    header('Location: dashboard.php'); // Redirect to Dashboard page
+    exit();
   }
 }
 

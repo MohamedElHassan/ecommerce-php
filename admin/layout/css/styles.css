@@ -2,6 +2,7 @@
 
 body {
   background-color: #f4f4f4;
+  font-size: 16px;
 }
 /* End Main Rules */
 
@@ -25,3 +26,34 @@ body {
 }
 
 /* End Login Form */
+
+/* Start Styling Boostrap Edits */
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.nav > li > a,
+.navbar-brand {
+  padding: 15px 12px;
+}
+.navbar-brand {
+  font-size: 1em;
+  /* Dynamic Sizing */
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.dropdown-menu {
+  background-color: #2ecc71;
+}
+.dropdown-menu {
+  font-size: 1em;
+  border-radius: 0;
+  border: none;
+}
+.dropdown-menu>li>a {
+  padding: 13px 16px;
+  color: #fff;
+}
+/* End Styling Boostrap Edits */
