@@ -52,8 +52,19 @@ body {
   border-radius: 0;
   border: none;
 }
-.dropdown-menu>li>a {
+.dropdown-menu > li > a {
   padding: 13px 16px;
   color: #fff;
 }
 /* End Styling Boostrap Edits */
+
+/* Start Members page */
+
+h1 {
+  font-size: 55px;
+  margin: 40px 0;
+  font-weight: bold;
+  color: #666;
+}
+
+/* End Members page */
